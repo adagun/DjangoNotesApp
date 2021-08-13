@@ -1,0 +1,21 @@
+ {% block content %} {%include '../base/navbar.html'%}
+
+
+<div class="pt-4 text-center">
+    <h1> Login</h1>
+
+    <form action="{% url 'login' %}" method="POST">
+        <div class="form-group "> {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="px-5 btn btn-primary ">Login</button>
+    </form>
+    </div>
+    <hr>
+    <div class="container p-4 mt-4">
+        <div class="container">
+            <span class="col-md">
+                <h3>Not registered? </h3>
+            <a class="col-md " href=" {% url 'register' %} "><button type="button " class="btn btn-success px-4 ">Register</button></a>
+        </span>
+        </div>
+    </div>
+</div>{% endblock%}

@@ -1,0 +1,46 @@
+{% block content %} {%include '../base/navbar.html'%}
+
+<div class="container p-4">
+    <div class="d-flex justify-content-between">
+        <h1 class="text-primary fw-bold">Register</h1>
+        <a href="{% url 'index'%}"> <button type="button" class="btn btn-secondary">Back</button> </a>
+    </div>
+
+
+    <form class="text-dark" method="POST">
+
+        {% csrf_token %} {% if form.errors %}
+        <div id="errors">
+            <div class="inner">
+                <ul>
+                    {% for field in form %} {% if field.errors %}
+                    <li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %} {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <div class="form-control ">
+                <label class="col-3 fw-bold" for="{{ form.username.id_for_label }}">Username</label> {{ form.username}}
+
+            </div>
+            <div class="form-control  ">
+                <label class="col-3 fw-bold" for="{{ form.password1.id_for_label }}">Password</label> {{ form.password1}}
+            </div>
+            <div class="form-control ">
+                <label class="col-3 fw-bold" for="{{ form.password2.id_for_label }}">Confirm password</label> {{ form.password2}}
+            </div>
+
+            <div class="col-12 mt-3 ">
+                <button type="submit " class="btn btn-success ">Register</button>
+
+
+
+    </form>
+    <p class="lead mt-5 text-primary">Already registered?
+
+        <a href="{% url 'login' %}"> <button type="button" class="btn btn-primary">Log in</button>
+    </p>
+    </div>
+
+    {% endblock %}

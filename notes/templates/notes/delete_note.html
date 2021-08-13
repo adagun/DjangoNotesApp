@@ -1,0 +1,14 @@
+ {%include '../base/navbar.html'%}{% block content %}
+
+<div class="container py-4 ">
+
+    <a href="{% url 'notes'%}"> <button type="button" class=" btn btn-secondary">Back</button> </a>
+    <div class="pt-4">
+        <form method="post" action="">
+            {% csrf_token %}
+            <p class="lead">Delete the "{{note}}" note? </p>
+            <input class="btn btn-danger" value="Delete" type="submit">
+        </form>
+    </div>
+</div>
+{% endblock %}

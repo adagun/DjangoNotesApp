@@ -1,0 +1,31 @@
+{%include '../base/navbar.html'%}{% block content %}
+
+<div class=" container p-4 ">
+    <div class="d-flex justify-content-between">
+        <h1 class="text-primary fw-bold">Create/Edit Note</h1>
+        <a href="{% url 'notes'%}"> <button type="button" class="btn btn-secondary py-2">Back</button> </a>
+    </div>
+    <form class="mt-4" action=" " method="post">
+
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-control ">
+                <label class="col-1 fw-bold" for="{{ form.title.id_for_label }}">Title:</label> {{ form.title}}
+
+            </div>
+            <div class="form-control">
+                <div class="align-baseline ">
+                    <label class="col-1 fw-bold" 2or="{{ form.text.id_for_label }}">Description:</label></div> {{ form.text}}
+            </div>
+            <div class="form-control  ">
+                <label class="col-2 fw-bold" for="{{ form.completed.id_for_label }}">Completed</label> {{form.completed}}
+            </div>
+        </div>
+
+        <div class="col-12 mt-3 ">
+
+            <input class="btn btn-success" type="submit" value="Submit" />
+    </form>
+    </div>
+</div>
+{%endblock %}
