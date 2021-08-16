@@ -24,7 +24,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', '=&$rh@!-&%)0(u86u#dxxq!&9=ei8y127tdsp&k8ze
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+
+
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -85,9 +88,9 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+if not DEBUG:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 
 # Password validation
