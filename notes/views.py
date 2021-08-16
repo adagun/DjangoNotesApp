@@ -10,13 +10,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import NoteForm
-from django.http import HttpResponseRedirect
 # Create your views here.
 
 
 def index_view(request):
     if request.user.is_authenticated():
-        return HttpResponseRedirect('notes')
+        # redirect users to notes page
+        return render(request, 'notes/notes.html')
+    #else to the index page
     return render(request, 'base/index.html')
 
 
