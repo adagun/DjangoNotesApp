@@ -14,10 +14,6 @@ from .forms import NoteForm
 
 
 def index_view(request):
-    if request.user.is_authenticated():
-        # redirect users to notes page
-        reverse_lazy('notes')
-    #else to the index page
     return render(request, 'base/index.html')
 
 
