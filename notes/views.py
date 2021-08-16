@@ -10,10 +10,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import NoteForm
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
 def index_view(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('notes')
     return render(request, 'base/index.html')
 
 
@@ -67,7 +70,6 @@ class UserLoginView(LoginView):
     
     def get_success_url(self):
         return reverse_lazy('notes')
-
 class RegistrationView(FormView):
     template_name = "auth/register.html"
    
