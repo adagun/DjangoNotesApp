@@ -1,4 +1,4 @@
-{% block content %} {%include '../base/navbar.html'%}
+{% block content %} {%include '../base/navbar.html'%} {%if request.user.is_authenticated %} {%include '../notes/notes.html' %} {% else %}
 <div class="mt-5"></div>
 <section class=" p-4 bg-secondary " id="services">
 
@@ -7,4 +7,4 @@
     </div>
 </section>
 
-{% endblock %}
+{% endif %} {% endblock %}
