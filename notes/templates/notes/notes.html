@@ -8,7 +8,7 @@
             <h1>Your Created Notes</h1>
         </div>
 
-        {% for note in notes %} {% empty %}
+        {% for note in notes %} {% if forloop.first %}
         <table class="table table-dark table-striped mt-4">
             <thead>
                 <tr>
@@ -17,6 +17,8 @@
                     <th></th>
                     <th></th>
                 </tr>
+                {%endif%} {% empty %}
+
                 <span class="lead"> Your note list is empty </span>
                 <p class="lead"> Create one using the button below</p>
                 {% endfor %} {% for note in notes %}
