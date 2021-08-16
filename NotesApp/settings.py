@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '=&$rh@!-&%)0(u86u#dxxq!&9=ei8y127tdsp&k8ze
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
