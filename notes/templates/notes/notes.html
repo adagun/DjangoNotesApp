@@ -7,7 +7,8 @@
         <div class="container">
             <h1>Your Created Notes</h1>
         </div>
-        <!-- TODO remove table header if user has no notes -->
+
+        {% for note in notes %}
         <table class="table table-dark table-striped mt-4">
             <thead>
                 <tr>
@@ -16,8 +17,10 @@
                     <th></th>
                     <th></th>
                 </tr>
-
-                {% for note in notes %}
+                {% empty %}
+                <span class="lead"> Your note list is empty </span>
+                <p class="lead"> Create one using the button below</p>
+                {% endfor %} {% for note in notes %}
 
                 <div class="container align-content-left">
                     <!-- TODO: add archive button -->
@@ -36,10 +39,6 @@
 
                     </tr>
                 </div>
-
-                {% empty %}
-                <span> Your note list is empty </span>
-                <p> Create one using the button below</p>
                 {% endfor %}
 
         </table>
