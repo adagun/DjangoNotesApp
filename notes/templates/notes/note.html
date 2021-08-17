@@ -25,10 +25,33 @@
                 <td>{{note.updated}}</td>
                 <td>{{note.completed}}</td>
             </tr>
-        </tbody>
-    </table>
+
+
 </div>
-{% else %}
-<h1 class="text-danger">This isn't your note</h1>
-{% endif %}
-<a href="{% url 'notes'%}"> <button type="button" class="btn btn-secondary">Back</button> </a> {%endblock%}
+
+
+<!-- If there is an image attached to the note -->
+{% if note.image %}
+<td class="col">
+    <div class="accordion" id="imageAccordion">
+        <div class="accordion-item bg-dark">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="btn button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Show Image
+      </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#imageAccordion">
+                <div class="accordion-body">
+                    <img class="img-fluid max-width" src="{{ note.image.url }}" alt="{{ note.title }}">
+                </div>
+            </div>
+
+            </tr>
+            {% endif %}
+            </tbody>
+            </table>
+        </div>
+        {% else %}
+        <h1 class="text-danger">This isn't your note</h1>
+        {% endif %}
+        <a href="{% url 'notes'%}"> <button type="button" class="btn btn-secondary">Back</button> </a> {%endblock%}

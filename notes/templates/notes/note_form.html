@@ -7,7 +7,7 @@
     </div>
 
     <div class="container w-auto p-3">
-        <form class="mt-4" action=" " method="post">
+        <form class="mt-4" action=" " method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
             <div class="form-group">
@@ -29,12 +29,17 @@
                     <div class="ml-4"> {{form.completed}}</div>
                 </div>
             </div>
-
-            <div class="col-12 mt-3 ">
-
-                <input class="btn btn-success" type="submit" value="Submit" />
-        </form>
-        </div>
+            <div class="form-control  ">
+                <label class="col-2 fw-bold" for="{{ form.image.id_for_label }}">Image:</label>
+                <div class="ml-4"> {{form.image}}</div>
+            </div>
     </div>
+
+    <div class="col-12 mt-3 ">
+
+        <input class="btn btn-success" type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
 </div>
 {%endblock %}

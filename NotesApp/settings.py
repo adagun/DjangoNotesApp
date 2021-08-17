@@ -167,3 +167,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 DATETIME_FORMAT="Y-m-d H:i"
 
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

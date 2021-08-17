@@ -9,9 +9,9 @@ class Note(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     completed = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images/', blank=True)
     
-    # TODO: Add image upload
-    
+  
     def __str__(self): 
         return f"{self.title}"
     # last updated note shows up at the top

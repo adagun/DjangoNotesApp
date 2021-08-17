@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
+
 urlpatterns = [
    path('', views.index_view, name="index"),
    path('notes/', views.NotesView.as_view(), name="notes"),
@@ -16,9 +17,6 @@ urlpatterns = [
 
 
 ]
-
-
-
 
 
        
