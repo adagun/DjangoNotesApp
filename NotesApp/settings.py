@@ -44,6 +44,7 @@ if not DEBUG:
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'notes',
+        'django_cleanup'
     ]
 else:
     INSTALLED_APPS = [
@@ -54,6 +55,7 @@ else:
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'notes',
+    'django_cleanup', # remove images from directory when the note is deleted 
 ]
 
 if not DEBUG:
