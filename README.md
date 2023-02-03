@@ -1,2 +1,2 @@
 # DjangoNotesApp
-https://django-notesapp.herokuapp.com/
+https://django-notes-y5sn.onrender.com
